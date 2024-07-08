@@ -11,6 +11,9 @@ export
 ########################################################################
 
 all: \
+	install
+
+build: \
 	.local/bin \
 	scripts
 
@@ -30,3 +33,7 @@ scripts: \
 .local/bin/tmux.sh:
 	wget -O $@ https://raw.githubusercontent.com/EvgeniyBlinov/scripts/v0.0.1/utils/tmux/tmux.sh
 	chmod +x $@
+
+.PHONY: install
+install:
+	stow  -t ~ -v 3 .
